@@ -4,7 +4,7 @@ import java.util.concurrent.Semaphore;
 
 public class Main {
 
-    static final Semaphore chairs = new Semaphore(3);
+    static final Semaphore chairs = new Semaphore(5);
     static final Semaphore barista = new Semaphore(2);
 
     static List<Thread> guestThreads = new ArrayList<>();
@@ -47,7 +47,7 @@ public class Main {
 
         Thread cafeThread = new Thread(cafe, "Кав'ярня");
         cafeThread.start();
-        Thread.sleep(6000);
+        Thread.sleep(10000);
         closeCafe();
         cafeThread.join();
         for (Thread guestThread : guestThreads) {
